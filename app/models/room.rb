@@ -2,14 +2,13 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :messages, dependent: :destroy
   has_many :users, through: :messages
-  before_validation :sanitize, :namify
-
+  before_validation :sanitize, :set_name
 
   def to_param
     self.name
   end
 
-  def namify
+  def set_name
     self.name = self.title.downcase.gsub(" ", "-")
   end
 

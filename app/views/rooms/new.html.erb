@@ -1,2 +1,17 @@
-<h1>Rooms#new</h1>
-<p>Find me in app/views/rooms/new.html.erb</p>
+<div class="row col-md-8 col-md-offset-2">
+
+  <h1>Create a Room on a programming title</h1>
+    <div class="well">
+      <div class="room-form">
+        <%= form_for @room do |f| %>
+          <div class="input-group">
+            <span class="input-group-addon">title:</span>
+            <%= f.text_field :title, class: "form-control"%>
+          </div>
+          <%= f.submit class: "btn btn-primary", id: "create-room" %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render partial: 'layouts/flash_errors'%>
+</div>

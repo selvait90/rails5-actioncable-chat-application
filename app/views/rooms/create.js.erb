@@ -1,0 +1,4 @@
+$("input#room_title").val(" ")
+$("#room-errors").html(" ")
+$("#room-index").append('<li><%= link_to @room.title, room_path(@room) %></li>')
+

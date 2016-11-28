@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "rooms";
+@import "messages";
+@import "users";
+
+
+.github-fork-ribbon.right-bottom:before {
+    background-color: black;
+}

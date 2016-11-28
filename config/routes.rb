@@ -1,31 +1,21 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
-  get 'sessions/create'
+  root "welcome#about"
 
-  get 'sessions/destroy'
+  get '/signup', to: "users#new"
+  post '/signup', to: "users#create"
 
-  get 'messages/create'
+  get 'login', to: "sessions#new"
+  post '/login', to: "sessions#create" 
+  delete '/logout', to: "sessions#destroy"
 
-  get 'rooms/new'
+  get 'users/:id', to: "users#show", as: "profile"
 
-  get 'rooms/create'
-
-  get 'rooms/update'
-
-  get 'rooms/edit'
-
-  get 'rooms/destroy'
-
-  get 'rooms/index'
-
-  get 'rooms/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/show'
+  resources :rooms, param: :name
+  resources :messages
+  
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

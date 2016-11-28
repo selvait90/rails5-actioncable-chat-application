@@ -3,12 +3,17 @@
   <head>
     <title>ActionCableChatExample</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'layouts/navbar' %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

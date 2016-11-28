@@ -1,2 +1,22 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <h2 id="log-in-title">Sign up</h2>
+    <div class="auth-form well">
+    <%= form_for(User.new, url: signup_path) do |f| %>
+
+      <%=f.label :name%>
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+          <%= f.text_field :name, class: "form-control"%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "sign up", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    </div>
+
+      <%= render partial: 'layouts/flash_errors'%>
+  </div>
+</div>
